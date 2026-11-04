@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f8fc">
+  <title>Eye Prescription Validator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/" aria-label="ClearSight home"><span class="brand-mark">C</span><span>ClearSight <small>OPTICAL TOOLS</small></span></a><span class="secure"><span class="secure-dot"></span> Private &amp; secure</span></header>
+  <main class="layout">
+    <section class="intro">
+      <div class="eyebrow"><span></span> PRESCRIPTION QUALITY CHECK</div>
+      <h1>Clarity starts<br>with <em>precision.</em></h1>
+      <p class="lede">Check your prescription values against standard optical ranges. Quick, clear, and easy to review.</p>
+      <div class="info-card"><div class="info-icon">i</div><p><strong>What you’ll need</strong><br>Find your SPH, CYL, and Axis values on your prescription. Enter each value exactly as written.</p></div>
+      <div class="trust"><span>✓</span> Your prescription isn’t saved or shared</div>
+    </section>
+    <section class="form-wrap" aria-label="Prescription form">
+      <div class="form-heading"><div><span class="step">PRESCRIPTION DETAILS</span><h2>Enter your values</h2></div><span class="required"><b>*</b> Required</span></div>
+      <form id="prescription-form" novalidate>
+        <div class="eye-card"><div class="eye-title"><span class="eye-symbol right-eye">R</span><div><h3>Right eye <span class="latin">OD</span></h3><p>Oculus Dexter</p></div><span class="eye-side">RIGHT</span></div>
+          <div class="fields">
+            <label for="od_sph">SPH <span>*</span><input id="od_sph" name="od_sph" inputmode="decimal" placeholder="e.g. −2.00" required><small>−20.00 to +20.00</small></label>
+            <label for="od_cyl">CYL <span>*</span><input id="od_cyl" name="od_cyl" inputmode="decimal" placeholder="e.g. −0.75" required><small>−10.00 to +10.00</small></label>
+            <label for="od_axis">AXIS <span>*</span><input id="od_axis" name="od_axis" inputmode="numeric" placeholder="e.g. 90" required><small>0° to 180°</small></label>
+          </div>
+        </div>
+        <div class="eye-card"><div class="eye-title"><span class="eye-symbol left-eye">L</span><div><h3>Left eye <span class="latin">OS</span></h3><p>Oculus Sinister</p></div><span class="eye-side">LEFT</span></div>
+          <div class="fields">
+            <label for="os_sph">SPH <span>*</span><input id="os_sph" name="os_sph" inputmode="decimal" placeholder="e.g. −1.50" required><small>−20.00 to +20.00</small></label>
+            <label for="os_cyl">CYL <span>*</span><input id="os_cyl" name="os_cyl" inputmode="decimal" placeholder="e.g. −0.50" required><small>−10.00 to +10.00</small></label>
+            <label for="os_axis">AXIS <span>*</span><input id="os_axis" name="os_axis" inputmode="numeric" placeholder="e.g. 75" required><small>0° to 180°</small></label>
+          </div>
+        </div>
+        <div id="result" class="result" role="status" aria-live="polite" hidden></div>
+        <div class="actions"><button class="submit" type="submit">Validate prescription <span>→</span></button><button class="reset" type="reset">Reset</button></div>
+      </form>
+      <footer>For reference purposes only. Always confirm your prescription with a licensed eye care professional.</footer>
+    </section>
+  </main>
+</body>
+</html>
